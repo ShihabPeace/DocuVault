@@ -22,10 +22,10 @@ export interface Users {
 }
 
 export interface Actions {
-  document_name: string;
+  id: number;
+  document_content: string;
   user: Users;
   document: Documents;
-  user_id: number | null;
-  action: 'created' | 'published' | 'updated' | 'deleted' | 'viewed';
+  event_type: 'created' | 'published' | 'updated' | 'deleted' | 'viewed';
   created_at:Date;
 }
