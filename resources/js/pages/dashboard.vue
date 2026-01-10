@@ -4,7 +4,7 @@ import PendingDocs from '@/components/widgets/PendingDocs.vue';
 import ActivityLog from '@/components/widgets/ActivityLog.vue';
 import ExpDocs from '@/components/widgets/ExpDocs.vue';
 import { provide, ref } from 'vue';
-import { Documents } from '@/schema/Documents';
+import { Documents } from '@/Documents';
 
 
 var cls: String = 'container  p-2 border border-white border-5 rounded-xl'

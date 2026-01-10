@@ -13,7 +13,8 @@ class Action extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'document_content',
+        'filename',
+        'checked',
         'event_type'=> EnumsAction::class,
     ];
     public function document():BelongsTo

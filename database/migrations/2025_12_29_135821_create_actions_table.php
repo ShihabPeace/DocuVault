@@ -15,7 +15,8 @@ return new class extends Migration
         Schema::create('actions', function (Blueprint $table) {
             $table->id();
             $table->string('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('document_content');
+            $table->boolean('checked');
+            $table->string('filename');
             $table->string('event_type')->default(EnumsAction::CREATE->value);
             $table->timestamps();
         });

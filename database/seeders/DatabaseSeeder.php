@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             $actioncount = rand(1, 4);
             Action::factory()->count($actioncount)->make()->each(function ($action) use ($doc, $user) {
                 $action->user_id = $user->random()->id;
+                $action->filename = $doc->filename;
                 $action->save();
             });
         });

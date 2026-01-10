@@ -14,16 +14,17 @@ class Document extends Model
     use HasFactory;
 
     protected $fillable = [
-    'content',
+    'filename',
     'link',
-    'user',
-    'checked',
+    'user_id',
     'status',
-    'expires_at'
+    'expire_date'
+            
 ];
     protected $casts = [
         'checked' => 'boolean',
         'status' => EnumsStatus::class,
+        'expire_date'=> 'datetime',
     ];
 
     public function actions(): HasMany

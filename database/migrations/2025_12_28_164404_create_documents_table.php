@@ -14,11 +14,10 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->string('content');
             $table->string('link');
+            $table->string('filename');
             $table->string('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->boolean('checked');
-            $table->datetime('expires_at');
+            $table->datetime('expire_date');
             $table->string('status')->default(EnumsStatus::PENDING->value);
             $table->timestamps();
         });

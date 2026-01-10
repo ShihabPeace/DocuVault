@@ -14,7 +14,9 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - laravel/mcp (MCP) - v0
 - laravel/prompts (PROMPTS) - v0
 - laravel/reverb (REVERB) - v1
+- laravel/telescope (TELESCOPE) - v5
 - laravel/wayfinder (WAYFINDER) - v0
+- tightenco/ziggy (ZIGGY) - v2
 - laravel/pint (PINT) - v1
 - laravel/sail (SAIL) - v1
 - phpunit/phpunit (PHPUNIT) - v11
@@ -23,6 +25,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - vue (VUE) - v3
 - @laravel/vite-plugin-wayfinder (WAYFINDER) - v0
 - eslint (ESLINT) - v9
+- laravel-echo (ECHO) - v2
 - prettier (PRETTIER) - v3
 
 ## Conventions

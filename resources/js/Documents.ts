@@ -1,12 +1,12 @@
 export interface Documents {
     id: number;
-    content: string;
+    filename: string;
     link: string;
     user: Users;
+    expire_date: Date;
     action: Actions[];
-    checked: boolean;
-    status: 'PENDING' | 'PUBLISHED' | 'CANCELLED' | 'EXPIRED'; // depends on your Status enum
-    created_at: string;
+    status: 'pending' | 'published' | 'cancelled' | 'expired'; // depends on your Status enum
+    created_at: Date;
     
 }
 
@@ -23,7 +23,8 @@ export interface Users {
 
 export interface Actions {
   id: number;
-  document_content: string;
+  filename: string;
+  checked: number;
   user: Users;
   document: Documents;
   event_type: 'created' | 'published' | 'updated' | 'deleted' | 'viewed';

@@ -2,10 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Enums\EnumsRoles;
 use App\Enums\EnumsStatus;
 use App\Models\Document;
-use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,8 +17,8 @@ class DocumentFactory extends Factory
      *
      * @return array<string, mixed>
      */
-   
-        protected $model = Document::class;
+    protected $model = Document::class;
+
     /**
      * Define the model's default state.
      *
@@ -28,48 +26,48 @@ class DocumentFactory extends Factory
      */
     public function definition(): array
     {
-//         $indicolors = [
-//     "bg-blue-500", "bg-green-500", "bg-yellow-400", "bg-gray-400",
-//     "bg-blue-500", "bg-green-500", "bg-yellow-400", "bg-blue-500",
-//     "bg-green-500", "bg-red-500", "bg-orange-400", "bg-purple-500",
-//     "bg-green-600"
-// ];
-// 'indicolor' => $this->faker->randomElement($indicolors),
+        //         $indicolors = [
+        //     "bg-blue-500", "bg-green-500", "bg-yellow-400", "bg-gray-400",
+        //     "bg-blue-500", "bg-green-500", "bg-yellow-400", "bg-blue-500",
+        //     "bg-green-500", "bg-red-500", "bg-orange-400", "bg-purple-500",
+        //     "bg-green-600"
+        // ];
+        // 'indicolor' => $this->faker->randomElement($indicolors),
 
-$roles = [
-    "Finance", "Legal", "HR", "Finance",
-    "Operations", "Legal", "Manager", "Finance",
-    "HR", "System", "Operations", "Legal",
-    "Manager"
-];
+        $roles = [
+            'Finance', 'Legal', 'HR', 'Finance',
+            'Operations', 'Legal', 'Manager', 'Finance',
+            'HR', 'System', 'Operations', 'Legal',
+            'Manager',
+        ];
 
-$contents = [
-    "Invoice – ABC Ltd",
-    "Contract – XYZ Corp",
-    "Employee record metadata",
-    "Old invoice",
-    "Purchase order",
-    "Policy document",
-    "Contract pending review",
-    "Invoice – DEF Ltd",
-    "HR form",
-    "Document",
-    "Invoice",
-    "Contract commented by legal team",
-    "Document workflow"
-];
-
+        $contents = [
+            'Invoice – ABC Ltd',
+            'Contract – XYZ Corp',
+            'Employee record metadata',
+            'Old invoice',
+            'Purchase order',
+            'Policy document',
+            'Contract pending review',
+            'Invoice – DEF Ltd',
+            'HR form',
+            'Document',
+            'Invoice',
+            'Contract commented by legal team',
+            'Document workflow',
+        ];
+        $source = '';
         $created = now();
-    $statuses = EnumsStatus::cases();
+        $statuses = EnumsStatus::cases();
+        $target = public_path().'\files';
         return [
-            
-            'content' => $this->faker->randomElement($contents),
-            'link' => '/documents/' . $this->faker->unique()->numberBetween(1, 100),
+
+            'filename' => $this->faker->file( public_path().'\dbfiles', $target, false),
+            'link' => '/documents/'.$this->faker->unique()->numberBetween(1, 100),
             'user_id' => null,
-            'checked' => $this->faker->boolean(),
-            'status' =>  $statuses[array_rand($statuses)]->value,
-            'created_at' => $created,
-            'expires_at' => Carbon::instance($created)->addDays(30), // 30 days after created_at
+            'status' => $statuses[array_rand($statuses)]->value,
+                'created_at' => $created,
+            'expire_date' => Carbon::instance($created)->addDays(30), // 30 days after created_at
         ];
     }
 }

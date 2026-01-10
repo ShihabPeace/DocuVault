@@ -23,7 +23,8 @@ class ActionFactory extends Factory
         $now = now();
         $actions = EnumsAction::cases();
         return [
-             'document_content' => $this->faker->sentence(3), // e.g., "Contract XYZ"
+             'filename' => $this->faker->sentence(3), // e.g., "Contract XYZ"
+            'checked' => $this->faker->boolean(),
             'user_id' => null,    // user who performed the action
             'event_type' => $actions[array_rand($actions)]->value,
             
