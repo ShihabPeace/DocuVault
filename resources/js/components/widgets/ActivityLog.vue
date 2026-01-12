@@ -5,8 +5,8 @@ import listrow from '../listrow.vue';
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar'
 import 'vue3-perfect-scrollbar/style.css'
 import ActivityLog from './ActivityLog.vue';
-import { Documents, Actions, Users } from '@/Documents';
-
+import { Documents, Actions, Users } from '@/dbschema';
+import { route, Route } from 'ziggy-js';
 
 
 
@@ -106,7 +106,6 @@ let listrowstyle = 'flex flex-col gap-1'
 <template>
     <div class="h-full flex flex-col border border-white rounded-md p-2 ">
         <p :class="labelstyle">Activity Log </p>
-        <p class="text-white">{{  }}</p>
         <!--  -->
         <!-- Scrollable container :href="doc.link"-->
         <PerfectScrollbar class="flex-1 mt-2">

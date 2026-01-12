@@ -3,7 +3,7 @@ export interface Documents {
     filename: string;
     link: string;
     user: Users;
-    expire_date: Date;
+    expire_date: string;
     action: Actions[];
     status: 'pending' | 'published' | 'cancelled' | 'expired'; // depends on your Status enum
     created_at: Date;
@@ -30,3 +30,4 @@ export interface Actions {
   event_type: 'created' | 'published' | 'updated' | 'deleted' | 'viewed';
   created_at:Date;
 }
+

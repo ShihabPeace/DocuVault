@@ -27,7 +27,7 @@ class ActionFactory extends Factory
             'checked' => $this->faker->boolean(),
             'user_id' => null,    // user who performed the action
             'event_type' => $actions[array_rand($actions)]->value,
-            
+            'created_at' => $now->subDay(rand(1, 30)),
         ];
     }
 }

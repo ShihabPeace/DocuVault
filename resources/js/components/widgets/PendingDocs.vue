@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject } from 'vue';
 import { PerfectScrollbar } from 'vue3-perfect-scrollbar';
-import { Documents } from '@/Documents';
+import { Documents } from '@/dbschema';
 import listrow from '@/components/listrow.vue';
 const documents = inject<Documents[]>('documents', []);
 

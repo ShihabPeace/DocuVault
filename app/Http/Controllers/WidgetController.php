@@ -77,4 +77,13 @@ class WidgetController extends Controller
         }
 
     }
+    public function remove(Request $req){
+        $req->validate([
+            'expdocid' => 'required|integer|exists:documents,id',
+        ]);
+
+        $res = Document::where('id',$req->expdocid)->delete();
+        ds($res);
+
+    }
 }

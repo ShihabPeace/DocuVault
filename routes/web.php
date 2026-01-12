@@ -7,3 +7,5 @@ use Inertia\Inertia;
 Route::get('/', [WidgetController::class, 'index'])->name('dashboard');
 
 Route::post('/checked', [WidgetController::class, 'checked'])->name('checked');
+
+Route::post('/remove', [WidgetController::class, 'remove'])->name('remove');
