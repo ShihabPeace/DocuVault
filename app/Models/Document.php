@@ -16,10 +16,11 @@ class Document extends Model
     protected $fillable = [
     'filename',
     'link',
+    'checked',
     'user_id',
     'status',
-    'expire_date'
-            
+    'pending'
+        
 ];
     protected $casts = [
         'checked' => 'boolean',

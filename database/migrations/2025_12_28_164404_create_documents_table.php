@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('link');
             $table->string('filename');
+            $table->boolean('checked');
             $table->string('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->datetime('expire_date');
             $table->string('status')->default(EnumsStatus::PENDING->value);

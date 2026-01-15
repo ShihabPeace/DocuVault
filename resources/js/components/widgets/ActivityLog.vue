@@ -7,27 +7,26 @@ import 'vue3-perfect-scrollbar/style.css'
 import ActivityLog from './ActivityLog.vue';
 import { Actions, Users } from '@/dbschema';
 import { route, Route } from 'ziggy-js';
+import Echo from 'laravel-echo';
+import { echo } from '@laravel/echo-vue';
 
 let labelstyle = inject('labelstyle');
 
+let echoInstance = echo();
+echoInstance.private('admin-notifications')
+    .listen('NewElementAdded', (e: any) => {
+        Recent.value.unshift(e.document);
+        console.log('DocumentPendingEvent received:', e);
+        // Optionally update Recent or documents here
+    });
+
 let Recent = ref<Actions[]>([]);
 const actions = inject<Actions[]>('actions', []);
+const eventColors = inject<Record<string, string>>('eventColors', {});
+
 
 function getclrcls(evnt_type: string) {
-    switch (evnt_type) {
-        case 'created':
-            return 'bg-green-500';
-        case 'published':
-            return 'bg-blue-500';
-        case 'updated':
-            return 'bg-yellow-500';
-        case 'deleted':
-            return 'bg-red-500';
-        case 'viewed':
-            return 'bg-gray-500';
-        default:
-            return 'bg-slate-500';
-    }
+    return eventColors[evnt_type] || 'bg-gray-500';
 }
 
 async function dbuncheck(actid: number) {
@@ -64,7 +63,6 @@ async function uncheck(id: number) {
         }
     }
 }
-
 
 let listrowstyle = 'flex flex-col gap-1'
 </script>

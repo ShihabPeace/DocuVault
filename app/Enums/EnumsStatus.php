@@ -8,4 +8,5 @@ enum EnumsStatus :string
     case PUBLISHED = 'published';
     case CANCELLED = 'cancelled';
     case EXPIRED = 'expired';
+    case DELETED = 'deleted';
 }

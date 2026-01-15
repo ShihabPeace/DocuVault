@@ -1,11 +1,12 @@
 export interface Documents {
     id: number;
     filename: string;
+    checked: number;
     link: string;
     user: Users;
     expire_date: string;
     action: Actions[];
-    status: 'pending' | 'published' | 'cancelled' | 'expired'; // depends on your Status enum
+    status: 'pending' | 'published' | 'canceled' | 'expired' | 'deleted'; // depends on your Status enum
     created_at: Date;
     
 }

@@ -9,6 +9,11 @@ import '../css/app.css';
 import MainLayout from './layout/MainLayout.vue';
 import Ziggy from './ziggy'; // your generated JS module
 import axios from 'axios';
+import { configureEcho } from '@laravel/echo-vue';
+
+configureEcho({
+    broadcaster: 'reverb',
+});
 
 configureEcho({ broadcaster: 'reverb' });
 

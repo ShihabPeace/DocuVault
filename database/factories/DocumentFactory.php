@@ -65,6 +65,7 @@ class DocumentFactory extends Factory
             'filename' => $this->faker->file( public_path().'\dbfiles', $target, false),
             'link' => '/documents/'.$this->faker->unique()->numberBetween(1, 100),
             'user_id' => null,
+            'checked' => $this->faker->boolean(),
             'status' => $statuses[array_rand($statuses)]->value,
                 'created_at' => $created,
             'expire_date' => Carbon::instance($created)->addDays(30), // 30 days after created_at
